@@ -19,6 +19,8 @@ Github: lukehjung
 
 **Ryan Tong**
 
+Github: ryanwrtong
+
 
 All section time 2PM.
 
