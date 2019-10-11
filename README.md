@@ -13,9 +13,9 @@ GitHub: grgzhng
 
 **Justin Jeon**
 
-
 **Luke Jung**
 
+Github: lukehjung
 
 **Ryan Tong**
 
