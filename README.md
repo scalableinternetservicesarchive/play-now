@@ -22,10 +22,7 @@ Github: lukehjung
 
 **Ryan Tong**
 
-<<<<<<< HEAD
 Github: ryanwrtong
 
 
-=======
->>>>>>> 7954f593d914f527e190a0b48c0ef8578d1e1314
 All section time 2PM.
