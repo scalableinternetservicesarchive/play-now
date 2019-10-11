@@ -1,24 +1,24 @@
-# README
+# PlayNow
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Project Description
+PlayNow is an application bootstrapped with Rails that will allow users to be able to watch Youtube videos in sync with one another.
 
-Things you may want to cover:
+### Team Members
+![Team Image](https://github.com/scalableinternetservices/play-now/blob/master/app/assets/images/team.jpg)
 
-* Ruby version
+**George Zhang**
 
-* System dependencies
+GitHub: grgzhng
 
-* Configuration
 
-* Database creation
+**Justin Jeon**
 
-* Database initialization
 
-* How to run the test suite
+**Luke Jung**
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+**Ryan Tong**
 
-* ...
+
+All section time 2PM.
+
