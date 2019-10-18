@@ -8,9 +8,27 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <%= yield %>
+
+    <script type="text/javascript">
+      const colors = ['#fc8181', '#f6ad55', '#f6e05e', '#68d391', '#63b3ed', '#7f9cf5', '#b794f4', '#f687b3'];
+
+      const buttons = document.getElementsByTagName("button");
+      for (let i = 0; i < buttons.length; i++) {
+        const btn = buttons[i];
+        btn.addEventListener("mouseover", () => {
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          btn.style.backgroundColor = color;
+        });
+        btn.addEventListener("mouseout", () => {
+          btn.style.backgroundColor = "white";
+        })
+      }
+    </script>
   </body>
 </html>
