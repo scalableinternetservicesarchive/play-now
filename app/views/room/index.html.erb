@@ -2,14 +2,23 @@
   <span class="header font-semibold text-6xl tracking-tight">Rooms</span>
 </div>
 <div class="flex mt-10">
-  <button
-    class="bg-white text-gray-800 text-4xl font-semibold h-32 w-56 border border-gray-400 rounded-lg shadow mx-6"
-  >
-    Create
-  </button>
-  <button
-    class="bg-white text-gray-800 text-4xl font-semibold h-32 w-56 border border-gray-400 rounded-lg shadow mx-6"
-  >
-    Join
-  </button>
+  <%= link_to 'Create', '/room/create', class: "bg-white text-gray-800 text-4xl font-semibold w-56 border border-gray-400 rounded-lg shadow mx-6 p-10 text-center" %>
+
+  <%= link_to 'Join', '/room/join', class: "bg-white text-gray-800 text-4xl font-semibold w-56 border border-gray-400 rounded-lg shadow mx-6 p-10 text-center" %>
+
+  <script type="text/javascript">
+    const colors = ['#fc8181', '#f6ad55', '#f6e05e', '#68d391', '#63b3ed', '#7f9cf5', '#b794f4', '#f687b3'];
+
+    const links = document.getElementsByTagName("a");
+    for (let i = 0; i < links.length; i++) {
+      const btn = links[i];
+      btn.addEventListener("mouseover", () => {
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        btn.style.backgroundColor = color;
+      });
+      btn.addEventListener("mouseout", () => {
+        btn.style.backgroundColor = "white";
+      })
+    }
+  </script>
 </div>
