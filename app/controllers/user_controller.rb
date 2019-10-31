@@ -6,4 +6,5 @@ class UserController < ApplicationController
     cookies[:username] = params[:username]
     redirect_to '/room'
   end
+
 end

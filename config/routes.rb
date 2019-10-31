@@ -2,8 +2,13 @@
 
 Rails.application.routes.draw do
   root 'user#index'
-  get '/room', to: 'room#index'
   post '/', to: 'user#create'
+  get '/room', to: 'room#index'
+  get '/room/create', to: 'room#create'
+  post '/room/create', to: 'room#make'
+  get '/room/join', to: 'room#join'
+  get '/room/:id', to: 'room#show'
+  delete '/room/:id', to: 'room#destroy'
 
   # resources :home, only: :index
 end
