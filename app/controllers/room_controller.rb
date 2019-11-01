@@ -16,7 +16,7 @@ class RoomController < ApplicationController
       redirect_to '/'
     else
       @room = Room.create(name: name)
-      redirect_to "/room/"
+      redirect_to "/room/#{name}"
     end
   end
 
