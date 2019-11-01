@@ -6,7 +6,6 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet">
@@ -14,8 +13,8 @@
 
   <body>
     <div class="flex flex-col items-center bg-teal-500 p-10 w-screen h-screen">
-      <nav class="w-full">
-        <span class="header font-semibold text-2xl tracking-tight">PlayNow</span>
+      <nav class="w-full media-content has-text-centered">
+        <span class="header title article-title">PlayNow</span>
       </nav>
       <%= yield %>
     </div>
