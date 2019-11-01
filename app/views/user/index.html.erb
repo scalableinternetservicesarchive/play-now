@@ -1,16 +1,15 @@
 
-<section class="hero is-info is-medium is-bold">
+<section class="container margin-50">
   <div class="hero-body">
-    <div class="container has-text-centered">
-      <span class="header font-semibold text-6xl tracking-tight">
-      Create your user
-    </span>
+    <div class="has-text-centered">
+      <span class="title is-1 header">
+        Create your user
+      </span>
       <%= form_with(local: true) do |f| %>
-        <%= f.label :username %>
-        <%= f.text_field :username, required: true%>
+        <%= f.label :username, class: "subtitle subtitle-text"%>
+        <%= f.text_field :username, required: true, class: "input is-info input-width"%>
 
-        <%= f.submit "Go to rooms ➡️", class: "bg-white text-gray-800 text-xl
-        font-semibold p-1 w-40 text-center rounded-lg shadow mx-6" %>
+        <%= f.submit "Go to rooms ➡️", class: "button is-link is-light" %>
       <% end %>
     </div>
   </div>
