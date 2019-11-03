@@ -9,6 +9,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -16,7 +17,13 @@
       <nav class="w-full media-content has-text-left">
         <span class="header title article-title">PlayNow</span>
       </nav>
-      <%= yield %>
+      <section class="container margin-50">
+        <div class="hero-body">
+          <div class="has-text-centered">
+            <%= yield %>
+          </div>
+        </div>
+      </section>
     </div>
   </body>
 </html>
