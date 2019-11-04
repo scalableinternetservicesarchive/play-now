@@ -1,33 +1,39 @@
-<div class="mt-24">
-  <span class="title is-1 header">Rooms</span>
-</div>
-<div class="flex mt-10">
-  <%= link_to 'Create', '/room/create', class: "button big-button" %>
+<section class="container margin-50">
+  <div class="hero-body">
+    <div class="has-text-centered">
+      <div class="mt-24">
+        <span class="title is-1 header">Rooms</span>
+      </div>
+      <div class="flex mt-10">
+        <%= link_to 'Create', '/room/create', class: "button big-button" %>
 
-  <%= link_to 'Join', '/room/join', class: "button big-button" %>
+        <%= link_to 'Join', '/room/join', class: "button big-button" %>
 
-  <script type="text/javascript">
-    const colors = [
-      "#fc8181",
-      "#f6ad55",
-      "#f6e05e",
-      "#68d391",
-      "#63b3ed",
-      "#7f9cf5",
-      "#b794f4",
-      "#f687b3"
-    ];
+        <script type="text/javascript">
+          const colors = [
+            "#fc8181",
+            "#f6ad55",
+            "#f6e05e",
+            "#68d391",
+            "#63b3ed",
+            "#7f9cf5",
+            "#b794f4",
+            "#f687b3"
+          ];
 
-    const links = document.getElementsByTagName("a");
-    for (let i = 0; i < links.length; i++) {
-      const btn = links[i];
-      btn.addEventListener("mouseover", () => {
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        btn.style.backgroundColor = color;
-      });
-      btn.addEventListener("mouseout", () => {
-        btn.style.backgroundColor = "white";
-      });
-    }
-  </script>
-</div>
+          const links = document.getElementsByTagName("a");
+          for (let i = 0; i < links.length; i++) {
+            const btn = links[i];
+            btn.addEventListener("mouseover", () => {
+              const color = colors[Math.floor(Math.random() * colors.length)];
+              btn.style.backgroundColor = color;
+            });
+            btn.addEventListener("mouseout", () => {
+              btn.style.backgroundColor = "white";
+            });
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,11 +1,17 @@
-<span class="title is-1 header">
-  Create your user
-</span>
-<div class="form">
-  <%= form_with(local: true) do |f| %>
-    <%= f.label "Username:", class: "subtitle subtitle-text"%>
-    <%= f.text_field :username, required: true, class: "input is-info text-input"%>
+<section class="container margin-50">
+  <div class="hero-body">
+    <div class="has-text-centered">
+      <span class="title is-1 header">
+        Create your user
+      </span>
+      <div class="form">
+        <%= form_with(local: true) do |f| %>
+          <%= f.label "Username:", class: "subtitle subtitle-text"%>
+          <%= f.text_field :username, required: true, class: "input is-info text-input"%>
 
-    <%= f.submit "Go to rooms ➡️", class: "button is-link is-light" %>
-  <% end %>
-</div>
+          <%= f.submit "Go to rooms ➡️", class: "button is-link is-light" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

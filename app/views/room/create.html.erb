@@ -1,13 +1,19 @@
-<div class="mt-24">
-  <span class="title is-1 header"
-    >Create a room</span
-  >
-</div>
-<div class="form">
-  <%= form_with(local: true) do |f| %>
-    <%= f.label "Name:", class: "subtitle subtitle-text" %>
-    <%= f.text_field :name, required: true, class: "input is-info text-input" %>
+<section class="container margin-50">
+  <div class="hero-body">
+    <div class="has-text-centered">
+      <div class="mt-24">
+        <span class="title is-1 header"
+          >Create a room</span
+        >
+      </div>
+      <div class="form">
+        <%= form_with(local: true) do |f| %>
+          <%= f.label "Name:", class: "subtitle subtitle-text" %>
+          <%= f.text_field :name, required: true, class: "input is-info text-input" %>
 
-    <%= f.submit "Make!", class: "button is-link is-light" %>
-  <% end %>
-</div>
+          <%= f.submit "Make!", class: "button is-link is-light" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
