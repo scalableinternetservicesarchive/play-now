@@ -15,7 +15,7 @@ class RoomController < ApplicationController
     if Room.find_by(name: name)
       redirect_to '/'
     else
-      @room = Room.create(name: name)
+      @room = Room.create(name: name, number: 10)
       redirect_to "/room/#{name}"
     end
   end
@@ -26,15 +26,22 @@ class RoomController < ApplicationController
   end
 
   def show
+    @room = Room.find_by(name: params[:id])
   end
 
   # DELETE /room/1
   def destroy
-    puts params
+    # puts params
     @room = Room.find_by(name: params[:id])
     if @room.present?
       @room.destroy
     end
     redirect_to '/room/join'
+  end
+
+  def increment
+    @room = Room.find_by(name: params[:id])
+    @room.increment!(:number)
+    redirect_to "/room/#{@room.name}"
   end
 end
