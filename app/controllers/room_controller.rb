@@ -27,6 +27,7 @@ class RoomController < ApplicationController
 
   def show
     @room = Room.find_by(name: params[:id])
+    cookies[:room_name] = @room.name
   end
 
   # DELETE /room/1
@@ -42,6 +43,7 @@ class RoomController < ApplicationController
   def increment
     @room = Room.find_by(name: params[:id])
     @room.increment!(:number)
+    ActionCable.server.broadcast "room_channel_#{@room.id}", content: @room.number
     redirect_to "/room/#{@room.name}"
   end
 end
