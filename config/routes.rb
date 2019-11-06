@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/room/join', to: 'room#join'
   get '/room/:id', to: 'room#show'
   delete '/room/:id', to: 'room#destroy'
+  post '/room/:id', to: 'room#increment'
 
+  mount ActionCable.server => '/cable'
   # resources :home, only: :index
 end
