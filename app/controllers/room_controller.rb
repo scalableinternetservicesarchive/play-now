@@ -15,7 +15,7 @@ class RoomController < ApplicationController
     if Room.find_by(name: name)
       redirect_to '/'
     else
-      @room = Room.create(name: name, number: 10)
+      @room = Room.create(name: name, number: 10, state: 1, videoId: "https://www.youtube.com/watch?v=-FlxM_0S2lA")
       redirect_to "/room/#{name}"
     end
   end
@@ -49,7 +49,7 @@ class RoomController < ApplicationController
   def change
     @room = Room.find(params[:id])
     video_url = params[:room][:videoId]
-    @room.videoId = video_url
+    @room.update_attribute(:videoId, video_url)
     ActionCable.server.broadcast "room_channel_#{@room.id}", content: @room
   end
 end
