@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_05_200903) do
+ActiveRecord::Schema.define(version: 2019_11_06_010643) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
     t.integer "number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "videoId"
+    t.integer "seconds"
+    t.integer "state"
+    t.string "users"
   end
 
 end

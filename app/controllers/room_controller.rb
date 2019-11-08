@@ -44,6 +44,11 @@ class RoomController < ApplicationController
     @room = Room.find_by(name: params[:id])
     @room.increment!(:number)
     ActionCable.server.broadcast "room_channel_#{@room.id}", content: @room.number
-    redirect_to "/room/#{@room.name}"
+  end
+
+  def change
+    @room = Room.find(params[:id])
+    video_url = params[:room][:videoId]
+    ActionCable.server.broadcast "room_channel_#{@room.id}", content: { videoId: video_url }
   end
 end

@@ -2,3 +2,7 @@
 <h1><%= @room.name %></h1>
 <div id="room-number"><%= @room.number %></div>
 <%= button_to "Increment", action: "increment" %>
+
+<%= form_for @room do |f| %>
+  Video ID: <%= f.text_field :videoId %>
+<% end %>
