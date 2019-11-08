@@ -1,5 +1,5 @@
 # PlayNow
-https://travis-ci.com/scalableinternetservices/play-now.svg?branch=master
+[![Build Status](https://travis-ci.com/scalableinternetservices/play-now.svg?branch=master)](https://travis-ci.com/scalableinternetservices/play-now)
 
 ### Project Description
 
