@@ -9,6 +9,9 @@ consumer.subscriptions.create(
       var videoId = videoUrl.match(rx)[1];
 
       document.getElementById("room-number").innerHTML = videoId;
+      document.getElementById(
+        "player"
+      ).src = `https://www.youtube.com/embed/${videoId}`;
     }
   }
 );
