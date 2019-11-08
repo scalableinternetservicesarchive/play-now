@@ -4,8 +4,11 @@ consumer.subscriptions.create(
   { channel: "RoomChannel" },
   {
     received(data) {
-      console.log(data);
-      document.getElementById("room-number").innerHTML = data.content;
+      var videoUrl = data.content.videoId;
+      var rx = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
+      var videoId = videoUrl.match(rx)[1];
+
+      document.getElementById("room-number").innerHTML = videoId;
     }
   }
 );

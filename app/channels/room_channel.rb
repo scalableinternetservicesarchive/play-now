@@ -8,4 +8,9 @@ class RoomChannel < ApplicationCable::Channel
     stream_from "room_channel_#{room.id}"
     # stream_from "room_#{params[:room]}"
   end
+
+  def receive(data)
+    puts "I HAVE RECEIVED"
+    puts data
+  end
 end

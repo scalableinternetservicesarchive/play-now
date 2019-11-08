@@ -49,6 +49,7 @@ class RoomController < ApplicationController
   def change
     @room = Room.find(params[:id])
     video_url = params[:room][:videoId]
-    ActionCable.server.broadcast "room_channel_#{@room.id}", content: { videoId: video_url }
+    @room.videoId = video_url
+    ActionCable.server.broadcast "room_channel_#{@room.id}", content: @room
   end
 end
