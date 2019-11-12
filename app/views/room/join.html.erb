@@ -1,3 +1,4 @@
+
 <div class="mt-24">
   <span class="header font-semibold text-6xl tracking-tight"
     >Join a room</span
@@ -6,11 +7,13 @@
 
 <div class="flex mt-10">
   <% if @rooms.present? %>
-    <nav class="nav flex-column">
+    <div class="columns is-multiline is-centered">
       <% @rooms.each do |room| %>
-        <td><%= link_to room.name, room.name, class: "bg-white text-gray-800 text-4xl font-semibold w-56 border border-gray-400 rounded-lg shadow mx-6 p-10 text-center" %>
+        <div class = "column is-one-fifth is-centered">
+          <%= link_to room.name, room.name, class: "button is-medium is-centered is-fullwidth" %>
+        </div>
       <% end %>
-    </nav>
+    </div>
   <% else %>
     <div class="text-muted">
       The are no rooms
@@ -18,35 +21,17 @@
   <% end %>
 </div>
 
-<script type="text/javascript">
-  const colors = ['#fc8181', '#f6ad55', '#f6e05e', '#68d391', '#63b3ed', '#7f9cf5', '#b794f4', '#f687b3'];
 
-  const links = document.getElementsByTagName("a");
-  for (let i = 0; i < links.length; i++) {
-    const btn = links[i];
-    btn.addEventListener("mouseover", () => {
-      const color = colors[Math.floor(Math.random() * colors.length)];
-      btn.style.backgroundColor = color;
-    });
-    btn.addEventListener("mouseout", () => {
-      btn.style.backgroundColor = "white";
-    })
-  }
-</script>
 
 <div class="mt-24">
-  <span class="header font-semibold text-3xl tracking-tight"
-    >Destroy a room</span
-  >
+  <span class="header font-semibold text-3xl tracking-tight">Destroy a room</span>
 </div>
 
-  <table>
-     <tbody>
-      <% @rooms.each do |room| %>
-      <tr>
-        <td><%= room.name %></td>
-        <td><%= link_to 'Destroy', room.name, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class = "columns is-centered is-multiline">
+  <% @rooms.each do |room| %>
+    <div class = "column is-one-tenth ">
+        <td><%=room.name%><br></td>
+        <td><%=link_to 'Destroy', room.name, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+    </div>
+  <% end %>
+</div>
