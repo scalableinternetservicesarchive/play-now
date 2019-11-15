@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/room/:id', to: 'room#show'
   delete '/room/:id', to: 'room#destroy'
   post '/room/:id', to: 'room#increment'
+  patch '/room/:id', to: 'room#forward'
   patch '/room.:id', to: 'room#change'
 
   mount ActionCable.server => '/cable'
