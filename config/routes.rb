@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   patch '/room/:id/seek', to: 'room#seek'
   patch '/room/:id/stop', to: 'room#stop'
   patch '/room/:id/play', to: 'room#play'
+  patch '/room/:id/pause', to: 'room#pause'
 
   mount ActionCable.server => '/cable'
   # resources :home, only: :index

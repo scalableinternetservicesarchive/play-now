@@ -107,7 +107,6 @@ consumer.subscriptions.create(
         var rx = /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
         var videoId = videoUrl.match(rx)[1];
 
-        document.getElementById("room-number").innerHTML = videoId;
         document.getElementById(
           "player"
         ).src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1`;

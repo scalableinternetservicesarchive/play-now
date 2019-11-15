@@ -72,8 +72,14 @@ class RoomController < ApplicationController
   end
 
   def play
-    puts "forward success"
+    puts "play success"
     @room = Room.find_by(name: params[:id])
     ActionCable.server.broadcast "room_channel_#{@room.id}", status: "playVideo"
+  end
+
+  def pause
+    puts "pause success"
+    @room = Room.find_by(name: params[:id])
+    ActionCable.server.broadcast "room_channel_#{@room.id}", status: "pauseVideo"
   end
 end

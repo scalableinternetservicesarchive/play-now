@@ -1,21 +1,21 @@
-<h1>hi</h1>
-<h1><%= @room.name %></h1>
-<div id="room-number"><%= @room.number %></div>
-<%= link_to 'Stop Video', "#{@room.name}/stop", method: :patch %>
-<%= link_to 'Play Video', "#{@room.name}/play", method: :patch %>
+<div class="section">
+  <h1 id="room-name"><%= @room.name %></h1>
 
-<%# <%= link_to "Label", :controller => :room_controller, :action => :forward %>
+  <%= form_for @room do |f| %>
+    Video ID: <%= f.text_field :videoId, class: "input is-primary is-small video-url" %>
+  <% end %>
 
-<%= form_for @room do |f| %>
-  Video ID: <%= f.text_field :videoId %>
-<% end %>
+  <%= link_to '⏹️', "#{@room.name}/stop", method: :patch, class: "video-control" %>
+  <%= link_to '▶️', "#{@room.name}/play", method: :patch, class: "video-control" %>
+  <%= link_to '⏸️', "#{@room.name}/pause", method: :patch, class: "video-control" %>
 
-<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-<div id="player"></div>
+  <%= form_for @room, url: "#{@room.name}/seek" do |f| %>
+    Jump to: <%= f.text_field :seconds, class: "input is-primary is-small video-seek" %>
+  <% end %>
 
-<%= form_for @room, url: "#{@room.name}/seek" do |f| %>
-  Seek to: <%= f.text_field :seconds %>
-<% end %>
+  <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+  <div id="player"></div>
+</div>
 
 <script>
     // 2. This code loads the IFrame Player API code asynchronously.
