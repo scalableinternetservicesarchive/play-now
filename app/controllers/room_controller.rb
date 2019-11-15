@@ -65,11 +65,15 @@ class RoomController < ApplicationController
     ActionCable.server.broadcast "room_channel_#{@room.id}", seconds: seconds
   end
 
-  def forward
+  def stop
     puts "forward success"
     @room = Room.find_by(name: params[:id])
-    @room.update_attribute(:state, 1)
-    ActionCable.server.broadcast "room_channel_#{@room.id}", status: "change"
+    ActionCable.server.broadcast "room_channel_#{@room.id}", status: "stopVideo"
   end
-  helper_method :forward
+
+  def play
+    puts "forward success"
+    @room = Room.find_by(name: params[:id])
+    ActionCable.server.broadcast "room_channel_#{@room.id}", status: "playVideo"
+  end
 end

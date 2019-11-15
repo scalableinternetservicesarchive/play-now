@@ -112,7 +112,7 @@ consumer.subscriptions.create(
           "player"
         ).src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1`;
       } else if (data.status) {
-        callPlayer("player", "stopVideo");
+        callPlayer("player", data.status);
       } else if (data.seconds) {
         console.log(data);
         callPlayer("player", "seekTo", [data.seconds, true]);

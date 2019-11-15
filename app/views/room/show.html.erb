@@ -1,8 +1,8 @@
 <h1>hi</h1>
 <h1><%= @room.name %></h1>
 <div id="room-number"><%= @room.number %></div>
-<%= link_to 'Stop Video', remote: true %>
-<%= link_to 'Play Video', remote: true %>
+<%= link_to 'Stop Video', "#{@room.name}/stop", method: :patch %>
+<%= link_to 'Play Video', "#{@room.name}/play", method: :patch %>
 
 <%# <%= link_to "Label", :controller => :room_controller, :action => :forward %>
 
@@ -39,7 +39,6 @@
         videoId: videoId,
         events: {
         'onReady': onPlayerReady,
-        'onStateChange': onPlayerStateChange
         }
     });
     }
@@ -54,14 +53,6 @@
     //    The function indicates that when playing a video (state=1),
     //    the player should play for six seconds and then stop.
 
-    function onPlayerStateChange(event) {
-      <%= @room.update_attribute(:state, !@room.state) %>
-      if (event.data == YT.PlayerState.PLAYING) {
-        // <% forward %>
-        console.log('forwarded');
-        // player.stopVideo();
-      }
-    }
 //   function stopVideo() {
 //     player.stopVideo();
 //   }
