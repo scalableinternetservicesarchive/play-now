@@ -1,7 +1,10 @@
 <h1>hi</h1>
 <h1><%= @room.name %></h1>
 <div id="room-number"><%= @room.number %></div>
-<%= button_to "Increment", action: "increment" %>
+<%= link_to 'Stop Video', remote: true %>
+<%= link_to 'Play Video', remote: true %>
+
+<%# <%= link_to "Label", :controller => :room_controller, :action => :forward %>
 
 <%= form_for @room do |f| %>
   Video ID: <%= f.text_field :videoId %>
@@ -39,21 +42,26 @@
 
     // 4. The API will call this function when the video player is ready.
     function onPlayerReady(event) {
-    event.target.playVideo();
+      // event.target.playVideo();
+      console.log('pre-forward')
     }
 
     // 5. The API calls this function when the player's state changes.
     //    The function indicates that when playing a video (state=1),
     //    the player should play for six seconds and then stop.
-    var done = false;
+
     function onPlayerStateChange(event) {
-        <%= @room.update_attribute(:state, !@room.state) %>
-    // if (event.data == YT.PlayerState.PLAYING && !done) {
-    //   setTimeout(stopVideo, 6000);
-    //   done = true;
-    // }
+      <%= @room.update_attribute(:state, !@room.state) %>
+      if (event.data == YT.PlayerState.PLAYING) {
+        // <% forward %>
+        console.log('forwarded');
+        // player.stopVideo();
+      }
     }
 //   function stopVideo() {
 //     player.stopVideo();
 //   }
+
+    document.body.player = player;
+    console.log(player)
 </script>

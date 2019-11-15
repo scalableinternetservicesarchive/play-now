@@ -27,7 +27,11 @@ class RoomController < ApplicationController
 
   def show
     @room = Room.find_by(name: params[:id])
-    cookies[:room_name] = @room.name
+    if @room
+      cookies[:room_name] = @room.name
+    else
+      redirect_to '/room'
+    end
   end
 
   # DELETE /room/1
@@ -52,4 +56,12 @@ class RoomController < ApplicationController
     @room.update_attribute(:videoId, video_url)
     ActionCable.server.broadcast "room_channel_#{@room.id}", content: @room
   end
+
+  def forward
+    puts "forward success"
+    @room = Room.find_by(name: params[:id])
+    @room.update_attribute(:state, 1)
+    ActionCable.server.broadcast "room_channel_#{@room.id}", status: "change"
+  end
+  helper_method :forward
 end
