@@ -54,7 +54,15 @@ class RoomController < ApplicationController
     @room = Room.find(params[:id])
     video_url = params[:room][:videoId]
     @room.update_attribute(:videoId, video_url)
-    ActionCable.server.broadcast "room_channel_#{@room.id}", content: @room
+    ActionCable.server.broadcast "room_channel_#{@room.id}", videoId: video_url
+  end
+
+  def seek
+    @room = Room.find_by(name: params[:id])
+    seconds = params[:room][:seconds]
+    puts seconds
+    @room.update_attribute(:seconds, seconds)
+    ActionCable.server.broadcast "room_channel_#{@room.id}", seconds: seconds
   end
 
   def forward

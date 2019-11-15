@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post '/room/:id', to: 'room#increment'
   patch '/room/:id', to: 'room#forward'
   patch '/room.:id', to: 'room#change'
+  patch '/room/:id/seek', to: 'room#seek'
 
   mount ActionCable.server => '/cable'
   # resources :home, only: :index

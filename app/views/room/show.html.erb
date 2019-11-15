@@ -13,6 +13,10 @@
 <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
 <div id="player"></div>
 
+<%= form_for @room, url: "#{@room.name}/seek" do |f| %>
+  Seek to: <%= f.text_field :seconds %>
+<% end %>
+
 <script>
     // 2. This code loads the IFrame Player API code asynchronously.
     var tag = document.createElement('script');
