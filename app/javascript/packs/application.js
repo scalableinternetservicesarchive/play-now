@@ -14,3 +14,7 @@ require("channels");
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+// TODO: need to poll every second
+// SetInterval here with a fetch request
+// also need to have client updating logic here — callPlayer

@@ -49,6 +49,7 @@ form {
 
 #room-name {
   font-size: 32px;
+  margin-bottom: 30px;
 }
 
 .video-control {
@@ -61,4 +62,16 @@ form {
 
 .video-seek {
   width: 50px;
+}
+
+.controller-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.controller-container div {
+  width: 48%;
+  padding: 0;
+  margin: 0;
 }
