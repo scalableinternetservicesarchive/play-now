@@ -82,4 +82,25 @@ class RoomController < ApplicationController
     @room = Room.find_by(name: params[:id])
     ActionCable.server.broadcast "room_channel_#{@room.id}", status: "pauseVideo"
   end
+
+  def seek_http
+    @room = Room.find_by(name: params[:id])
+    seconds = params[:room][:seconds]
+    @room.update_attribute(:seconds, seconds)
+  end
+
+  def stop_http
+    puts "forward success"
+    @room = Room.find_by(name: params[:id])
+  end
+
+  def play_http
+    puts "forward success"
+    @room = Room.find_by(name: params[:id])
+  end
+
+  def pause_http
+    puts "pause success"
+    @room = Room.find_by(name: params[:id])
+  end
 end

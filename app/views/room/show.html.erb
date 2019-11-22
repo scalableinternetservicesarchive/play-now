@@ -7,26 +7,26 @@
       <%= form_for @room do |f| %>
         Video ID: <%= f.text_field :videoId, class: "input is-primary is-small video-url" %>
       <% end %>
-      
+
       <%= link_to '⏹️', "#{@room.name}/stop", method: :patch, class: "video-control" %>
       <%= link_to '▶️', "#{@room.name}/play", method: :patch, class: "video-control" %>
       <%= link_to '⏸️', "#{@room.name}/pause", method: :patch, class: "video-control" %>
-      
+
       <%= form_for @room, url: "#{@room.name}/seek" do |f| %>
         Jump to: <%= f.text_field :seconds, class: "input is-primary is-small video-seek" %>
       <% end %>
     </div>
     <div>
       <h2>HTTP Implementation</h2>
-      <%= form_for @room do |f| %>
+      <%= form_for @room, url: "#{@room.name}/video" do |f| %>
         Video ID: <%= f.text_field :videoId, class: "input is-primary is-small video-url" %>
       <% end %>
-      
-      <%= link_to '⏹️', "#{@room.name}/stop", method: :patch, class: "video-control" %>
-      <%= link_to '▶️', "#{@room.name}/play", method: :patch, class: "video-control" %>
-      <%= link_to '⏸️', "#{@room.name}/pause", method: :patch, class: "video-control" %>
-      
-      <%= form_for @room, url: "#{@room.name}/seek" do |f| %>
+
+      <%= link_to '⏹️', "#{@room.name}/stop", method: :post, class: "video-control" %>
+      <%= link_to '▶️', "#{@room.name}/play", method: :post, class: "video-control" %>
+      <%= link_to '⏸️', "#{@room.name}/pause", method: :post, class: "video-control" %>
+
+      <%= form_for @room, url: "#{@room.name}/seekvideo" do |f| %>
         Jump to: <%= f.text_field :seconds, class: "input is-primary is-small video-seek" %>
       <% end %>
     </div>

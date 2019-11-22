@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   patch '/room/:id/play', to: 'room#play'
   patch '/room/:id/pause', to: 'room#pause'
 
+  post '/room/:id/seekvideo', to: 'room#seek_http'
+  post '/room/:id/stop', to: 'room#stop_http'
+  post '/room/:id/play', to: 'room#play_http'
+  post '/room/:id/pause', to: 'room#pause_http'
+
   mount ActionCable.server => '/cable'
   # resources :home, only: :index
 end
