@@ -31,15 +31,23 @@
 
   <sessions>
     <session name="http-example" probability="100" type="ts_http">
+
+      <!-- Start out at the index. -->
       <request>
         <http url="/" version="1.1" method="GET"/>
       </request>
+      <!-- Wait for up to 2 seconds to type username. -->
       <thinktime value="2" random="true"/>
-      
+
+      <!-- Create user and move to room page -->
+      <request>
+        <http url="/" method="POST" contents="username=justin"/>
+      </request>
+
       <request>
         <http url="/room" version="1.1" method="GET"/>
       </request>
       <thinktime value="2" random="true"/>
-      </session>
+    </session>
   </sessions>
 </tsung>
