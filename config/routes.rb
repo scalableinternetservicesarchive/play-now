@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   patch '/room/:id/play', to: 'room#play'
   patch '/room/:id/pause', to: 'room#pause'
 
-  post '/room/:id/seekvideo', to: 'room#seek_http'
+  get '/room/:id/state', to: 'room#state'
+  patch '/room/:id/video', to: 'room#change_http'
+  patch '/room/:id/seekvideo', to: 'room#seek_http'
   post '/room/:id/stop', to: 'room#stop_http'
   post '/room/:id/play', to: 'room#play_http'
   post '/room/:id/pause', to: 'room#pause_http'

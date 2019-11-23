@@ -79,3 +79,7 @@
     document.body.player = player;
     console.log(player)
 </script>
+
+<% content_for :javascript do %>
+  <%= javascript_include_tag 'playerPoll.js' %>
+<% end %>

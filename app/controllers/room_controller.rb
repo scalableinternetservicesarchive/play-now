@@ -32,6 +32,9 @@ class RoomController < ApplicationController
     else
       redirect_to '/room'
     end
+
+    # msg = {:token => 'hello'}
+    # render :json => msg
   end
 
   # DELETE /room/1
@@ -83,6 +86,17 @@ class RoomController < ApplicationController
     ActionCable.server.broadcast "room_channel_#{@room.id}", status: "pauseVideo"
   end
 
+  def state
+    @room = Room.find_by(name: params[:id])
+    render :json => @room
+  end
+
+  def change_http
+    @room = Room.find_by(name: params[:id])
+    video_url = params[:room][:videoId]
+    @room.update_attribute(:videoId, video_url)
+  end
+
   def seek_http
     @room = Room.find_by(name: params[:id])
     seconds = params[:room][:seconds]
@@ -92,15 +106,18 @@ class RoomController < ApplicationController
   def stop_http
     puts "forward success"
     @room = Room.find_by(name: params[:id])
+    @room.update_attribute(:state, 0)
   end
 
   def play_http
     puts "forward success"
     @room = Room.find_by(name: params[:id])
+    @room.update_attribute(:state, 2)
   end
 
   def pause_http
     puts "pause success"
     @room = Room.find_by(name: params[:id])
+    @room.update_attribute(:state, 1)
   end
 end
