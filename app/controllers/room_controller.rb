@@ -1,9 +1,6 @@
 class RoomController < ApplicationController
   # GET /room
   def index
-    unless cookies[:username]
-      redirect_to '/'
-    end
   end
 
   def create
