@@ -7,7 +7,7 @@
   </clients>
 
   <servers>
-    <server host="ec2-44-228-42-118.us-west-2.compute.amazonaws.com" port="80" type="tcp"/>
+    <server host="play-now-2.ktphp3kmub.us-west-2.elasticbeanstalk.com" port="80" type="tcp"/>
   </servers>
 
   <load>
@@ -45,10 +45,28 @@
         <http url="/" method="POST" contents="username=justin"/>
       </request>
 
+      <!-- Navigate to "create room" page-->
       <request>
-        <http url="/room" version="1.1" method="GET"/>
+        <http url="/room/create" version="1.1" method="GET" />
       </request>
       <thinktime value="2" random="true"/>
+
+      <setdynvars sourcetype="random_number" start="1000" end="9999999">
+        <var name="random_room_name" />
+      </setdynvars>
+
+      <!-- Create a room -->
+      <request subst="true">
+        <http url="/room/create" version="1.1" method="POST" contents="name=%%_random_room_name%%"/>
+      </request>
+      <thinktime value="2" random="true"/>
+
+      <!-- Delete a room -->
+      <request subst="true">
+        <http url="/room/%%_random_room_name%%" version="1.1" method="DELETE"/>
+      </request>
+      <thinktime value="2" random="true"/>
+
     </session>
   </sessions>
 </tsung>
