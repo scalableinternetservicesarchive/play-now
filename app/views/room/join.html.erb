@@ -35,3 +35,13 @@
     </div>
   <% end %>
 </div>
+
+<div class="mt-24">
+  <span class="header font-semibold text-3xl tracking-tight">Destroy all rooms</span>  
+</div>
+
+<div class = "columns is-centered is-multiline">
+  <div class = "column is-one-tenth ">
+    <td><%=link_to 'Destroy all', 'delete/all', method: :delete, data: { confirm: 'Are you sure?' }%></td>
+  </div>
+</div>

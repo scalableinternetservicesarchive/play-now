@@ -47,6 +47,14 @@ class RoomController < ApplicationController
     redirect_to '/room/join'
   end
 
+  def destroy_all
+    Room.all.each do |room|
+        room.destroy
+    end
+    redirect_to '/room/join'
+  end
+
+
   def increment
     @room = Room.find_by(name: params[:id])
     @room.increment!(:number)

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/room/join', to: 'room#join'
   get '/room/:id', to: 'room#show'
   delete '/room/:id', to: 'room#destroy'
+  delete '/room/delete/all', to: 'room#destroy_all'
   post '/room/:id', to: 'room#increment'
   patch '/room/:id', to: 'room#forward'
   patch '/room.:id', to: 'room#change'
