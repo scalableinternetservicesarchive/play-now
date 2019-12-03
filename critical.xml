@@ -61,6 +61,18 @@
       </request>
       <thinktime value="2" random="true"/>
 
+      <!-- Navigate to created room -->
+      <request subst="true">
+        <http url="/room/%%_random_room_name%%" version="1.1" method="GET" />
+      </request>
+      <thinktime value="1" random="true"/>
+
+      <!-- Change the video -->
+      <request subst="true">
+        <http url="/room/%%_random_room_name%%/video" version="1.1" method="PATCH" contents="room[videoId]=https://www.youtube.com/watch?v=gBRi6aZJGj4"/>
+      </request>
+      <thinktime value="10" random="false"/>
+
       <!-- Delete a room -->
       <request subst="true">
         <http url="/room/%%_random_room_name%%" version="1.1" method="DELETE"/>
