@@ -22,7 +22,7 @@ class RoomController < ApplicationController
 
   # GET /room/join
   def join
-    @rooms = Room.all
+    @rooms = Room.paginate(page: params[:page], per_page: 10)
   end
 
   def show
