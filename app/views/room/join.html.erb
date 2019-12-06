@@ -1,7 +1,11 @@
 <div class="mt-24">
-  <span class="header font-semibold text-6xl tracking-tight"
-    >Join a room</span
-  >
+  <br/>
+  <span class="header font-semibold text-6xl tracking-tight">
+    Join a room
+  </span>
+  <br/>
+  <br/>
+
 </div>
 
 <div class="flex mt-10">
@@ -10,6 +14,7 @@
       <% @rooms.each do |room| %>
         <div class = "column is-one-fifth is-centered">
           <%= link_to room.name, room.name, class: "button is-medium is-centered is-fullwidth" %>
+          <td><%=link_to 'Destroy', room.name, method: :delete, data: { confirm: 'Are you sure?' }, class: "is-centered"%></td>
         </div>
       <% end %>
     </div>
@@ -22,7 +27,9 @@
 
 
 
-<div class="mt-24">
+<%
+=begin%>
+ <div class="mt-24">
   <span class="header font-semibold text-3xl tracking-tight">Destroy a room</span>
 </div>
 
@@ -33,16 +40,27 @@
         <td><%=link_to 'Destroy', room.name, method: :delete, data: { confirm: 'Are you sure?' }%></td>
     </div>
   <% end %>
-</div>
+</div> 
+<%
+=end%>
 
-<div class="mt-24">
+<%
+=begin%>
+ <div class="mt-24">
+  <br/>
+  <br/>
   <span class="header font-semibold text-3xl tracking-tight">Destroy all rooms</span>  
-</div>
+</div> 
+<%
+=end%>
 
 <div class = "columns is-centered is-multiline">
   <div class = "column is-one-tenth ">
-    <td><%=link_to 'Destroy all', 'delete/all', method: :delete, data: { confirm: 'Are you sure?' }%></td>
+    <br/>
+    <br/>
+    <td><%=link_to 'Destroy all rooms', 'delete/all', method: :delete, data: { confirm: 'Are you sure?' }%></td>
   </div>
 </div>
-
+<div style="display: flex; justify-content: center;">
 <%= will_paginate @rooms, :class => 'digg_pagination' %>
+</div>
